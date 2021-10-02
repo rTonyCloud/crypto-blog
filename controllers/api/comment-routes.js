@@ -1,34 +1,47 @@
+const router = require('express').Router();
+const { Comment } = require('../../models');
+const withAuth = require('../../utils/auth');
 
+router.get('/', (req, res) => {
+  Comment.findAll()
+    .then(dbCommentData => res.json(dbCommentData))
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
 
-<div class="grid-container fluid">
-    <div class="grid-x grid-margin-x">
-      <div class="cell large-3 large-offset-4 " id = "signup-page">
-        
-        <h3 class="title pb-4" id="signup-title">Create New Account:</h3>
-        <form class="signup-form">
-          <div >
-            <label id="name-heading"><h5>Name:</h5></label>
-            <input type="text" placeholder="Name" id = "name-signup">
-          </div>
-          <div >
-            <label id="email-heading"><h5>Email:</h5></label>
-            <input type="Email" placeholder="Email" id = "email-signup">
-          </div>
-          <div >
-            <label id="username-heading"><h5>Username:</h5></label>
-            <input type="text" placeholder="Username" id = "user_id-signup">
-          </div>          
-          <div >
-            <label id="password-heading"><h5>Password:</h5></label>
-            <input type="password" placeholder="Password" id = "password-signup">
-          </div>
-          
-          
-          <div>
-            <button type="submit" class="success button" id = "signup-btn"><h5>Signup</h5></button>
-            
-          </div>
-        </form>
-      </div>
-    </div>
-</div>
+router.post('/', withAuth, (req, res) => {
+  // expects => {comment_text: "This is the comment", user_id: 1, post_id: 2}
+  Comment.create({
+    comment_text: req.body.comment_text,
+    user_id: req.session.user_id,
+    post_id: req.body.post_id
+  })
+    .then(dbCommentData => res.json(dbCommentData))
+    .catch(err => {
+      console.log(err);
+      res.status(400).json(err);
+    });
+});
+
+router.delete('/:id', withAuth, (req, res) => {
+  Comment.destroy({
+    where: {
+      id: req.params.id
+    }
+  })
+    .then(dbCommentData => {
+      if (!dbCommentData) {
+        res.status(404).json({ message: 'No comment found with this id!' });
+        return;
+      }
+      res.json(dbCommentData);
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json(err);
+    });
+});
+
+module.exports = router;
