@@ -1,5 +1,9 @@
 const path = require('path');
 
+
+// import controllers
+const routes = require('./controllers');
+
 // express import
 const express = require('express');
 
