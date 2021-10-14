@@ -1,3 +1,5 @@
+const { json } = require("sequelize/types");
+
 async function deleteFormHandler(event) {
     event.preventDefault();
   
@@ -5,7 +7,13 @@ async function deleteFormHandler(event) {
       window.location.toString().split('/').length - 1
     ];
     const response = await fetch(`/api/posts/${id}`, {
-      method: 'DELETE'
+      method: 'DELETE',
+      body: JSON.stringify({
+        post_id: id
+      }),
+      headers: {  
+        'Content-Type': 'application/json'
+      }
     });
   
     if (response.ok) {

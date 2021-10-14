@@ -29,10 +29,6 @@ User.init(
             type: DataTypes.STRING,
             allowNull: true
         },
-        telephone_no: {
-            type: DataTypes.STRING,
-            allowNull: true
-        },
         // define an email column
         email: {
           type: DataTypes.STRING,

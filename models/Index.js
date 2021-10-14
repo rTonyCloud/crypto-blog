@@ -1,44 +1,44 @@
 // import models
-const Comment = require('./Post');
-const Post = require('./Comment');
+const Comment = require('./Comment');
+const Post = require('./Post');
 const User = require('./User');
 
+// user have many Post
+User.hasMany(Post, {
+foreignKey: 'user_id'
 
-
-// need to be completed
-// Products belongsTo Category
-todo.belongsTo(todo, {
-foreignKey: 'todo'
-});
-// Categories have many Products
-todo.hasMany(todo, {
-  foreignKey: 'todo'
 });
 
-// Product belongTo User
-todo.belongsTo(User, {
+// Post belongs to users
+Post.belongsTo(User, {
+  foreignKey: 'user_id',
+    onDelete: 'SET NULL'
+});
+
+// Comment belongsTo User
+Comment.belongsTo(User, {
     foreignKey: 'user_id',
+    onDelete: 'SET NULL'
 });
 
 // User have many Products
-tdo.hasMany( todo, {
+User.hasMany(Comment, {
     foreignKey: 'user_id'
 });
-// Products belongToMany Tags (through ProductTag)
-todo.belongsToMany(todo, { 
-    through: todo,
-    
-  });
-  
-  // Tags belongToMany Products (through ProductTag)
-  todo.belongsToMany(todo, { 
-    through: todo,
-   
-  });
+
+
+// POst hasMany comments (through ProductTag)
+Post.hasMany(Comment, { 
+  foreignKey: 'user_id'
+});
+
+Comment.belongsTo(Post, {
+  foreignKey: 'post_id',
+    onDelete: 'SET NULL'
+})
 
 module.exports = {
   Comment,
   Post,
   User
-  
 };
