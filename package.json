@@ -3,8 +3,10 @@
   "version": "1.0.0",
   "description": "community tech blog",
   "main": "index.js",
+  
   "scripts": {
-    "test": "npm test"
+    "test": "npm test",
+    "seed": "node seeds/index.js"
   },
   "repository": {
     "type": "git",

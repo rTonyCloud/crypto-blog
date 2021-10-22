@@ -1,0 +1,33 @@
+:root {
+    --primary-blue: rgb(13 85 167);
+    --background-text: rgb(9, 9, 121); ;
+    --button-hover: rgb(255, 255, 0);
+    --text-white: rgb(255, 255, 255);
+    --gold-text: rgb(255, 215, 0);
+    --black: rgb(0, 0, 0);
+}
+
+#navbar {
+    background-color: var(--background-text);
+    border-top: 2;
+    font-size: 5rem;
+    color: 0;
+
+}
+
+#fontbar {
+    text-decoration: none;
+    color: var(--text-white);
+}
+
+
+footer{
+    height: 6.25rem;
+    background: black;
+    color: var(--text-white);
+    padding: .62rem;
+    position: fixed;
+     Width: 100%;
+     bottom: 0%;
+}
+

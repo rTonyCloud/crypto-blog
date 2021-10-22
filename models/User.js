@@ -21,7 +21,7 @@ User.init(
           autoIncrement: true
         },
         // define a username column
-        name: {
+        username: {
           type: DataTypes.STRING,
           allowNull: false
         },
