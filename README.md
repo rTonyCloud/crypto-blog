@@ -9,8 +9,15 @@
 * [Contributors](#contributors)
 * [Questions](#questions)
 
+## video
+
+
+https://user-images.githubusercontent.com/85594926/141061955-40ba8b58-c4f5-4bb0-b033-5da1dbdce487.mp4
+
+
+
 ## Repo Link
-link
+https://tech-blog-website.herokuapp.com/
 
 ## Description 
 This is a social media website which users can post about different types of technologies and dicuss different topic
