@@ -10,8 +10,6 @@
 * [Questions](#questions)
 
 ## video
-
-
 https://user-images.githubusercontent.com/85594926/141061955-40ba8b58-c4f5-4bb0-b033-5da1dbdce487.mp4
 
 
@@ -26,19 +24,23 @@ This is a social media website which users can post about different types of tec
 npm i -y
 
 ## usage
-	
+feel free to use!
 
 ## Licenses  
-  This project is licenses under MIT license.
+This project is licenses under MIT license.
 
 ## test
+npm run test
 	
 
 ## languages
-
+javascript
+node.js
+mysql
+handlebars
 
 ## Contributors
-	
+Tony Rivera 
 
 ## Questions
 If you need to ask me any questions you can contact me at rtonycloud@gmail.com.
